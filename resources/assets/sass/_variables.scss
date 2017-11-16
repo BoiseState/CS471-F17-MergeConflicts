@@ -68,8 +68,11 @@ body{
     background-color: $interfaith-yellow; 
 }
 // This is a temp place holder
-.calender{
+.calendar{
     background-color: $interfaith-red;
-    height: 60vh;
+    
 }
-
+#calendar {
+    margin: 15px;
+    background-color: $interfaith-green;
+}
