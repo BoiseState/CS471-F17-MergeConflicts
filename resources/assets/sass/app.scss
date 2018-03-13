@@ -6,7 +6,7 @@
 
 // Variables
 @import "checkbox";
-@import "volunteer-form";
+@import "form";
 @import "loading-spinner";
 
 //
@@ -28,9 +28,12 @@
     max-height: 50px;
     max-width: 50px;
 }
-
 .event-info-details {
     float: right;
     position: relative;
     margin-top: -13px;
-  }
+}
+
+.row-padding {
+    margin: 0;
+}
