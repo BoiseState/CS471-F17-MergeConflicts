@@ -28,7 +28,9 @@ class MealIdeaFormRepositoryStoresTest extends TestCase
     public function test_create_minimum_requirement()
     {
         $mockRequest = [
+            'title' => 'Some Title',
             'meal_name' => 'Title',
+            'instructions' => 'Here is some Instr.',
             'description' => 'Isn\'t supposed to be null',
             'ingredient' => [
                 'a',
@@ -38,6 +40,8 @@ class MealIdeaFormRepositoryStoresTest extends TestCase
             'external_link' => null,
             'name' => null,
             'email' => null,
+            'display' => 1,
+            'meal_idea_status' => 0
         ];
 
         $id = $this->formService->create($mockRequest);
@@ -47,17 +51,23 @@ class MealIdeaFormRepositoryStoresTest extends TestCase
     }
 
     /**
-    * @expectedException ErrorException
+    * @expectedException Exception
     */
     public function test_create_missing_requirements()
     {
+
         $mockRequest = [
-            'description' => 'Isn\'t supposed to be null',
+            'meal_name' => 'Title',
+            'description' => null,
             'ingredient' => [
                 'a',
                 'b',
                 'c',
             ],
+            'external_link' => null,
+            'name' => null,
+            'email' => null,
+            'meal_idea_status' => 0,
         ];
         $id = $this->formService->create($mockRequest);
         $this->assertFalse(true); // Should not be reached because an exception will be thrown
@@ -66,7 +76,9 @@ class MealIdeaFormRepositoryStoresTest extends TestCase
     public function test_meal_idea_approve()
     {
         $mockRequest = [
+            'title' => 'Some Title',
             'meal_name' => 'Title',
+            'instructions' => 'Here is some Instr.',
             'description' => 'Isn\'t supposed to be null',
             'ingredient' => [
                 'a',
@@ -76,6 +88,7 @@ class MealIdeaFormRepositoryStoresTest extends TestCase
             'external_link' => null,
             'name' => null,
             'email' => null,
+            'display' => 1,
             'meal_idea_status' => 0,
         ];
 
